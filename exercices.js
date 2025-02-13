@@ -64,6 +64,8 @@ const afficherRechercheArtefact = ({ artefact, epoque, success = true }) => {
  */
 let nomEpoqueActuelle;
 
+
+
 creerLesChoixEpoque(epoques);
 
 // Fonction appelée plus haut quand le formulaire de voyage temporel est soumis
@@ -77,3 +79,15 @@ function quandEpoqueChoisie(nomEpoque) {
 function quandRechercheArtefact(artefact) {
   // Utilisation de votre fonction collecterArtefact
 }
+
+// exercice 1
+const chargement = document.querySelector(".voyage_en_cours");
+const localisation = document.querySelector(".localisation_epoque");
+
+function voyagerTemps(destination, callback) {chargement.style.display = "block"; localisation.style.display = "none";
+  setTimeout (() => {
+    chargement.style.display = "none";
+    localisation.style.display = "block";
+    callback(destination)},generationNombreAleatoireEntre(1000, 3000));
+}
+voyagerTemps(epoques["romaine"], afficherDestination);
